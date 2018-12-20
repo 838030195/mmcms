@@ -8,15 +8,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-@RequestMapping("/info")
 public class InfoController {
 
     @Autowired
     private ArticleService articleService;
 
 
-    @RequestMapping("/{id}")
+    @RequestMapping("/info/{id}")
     public ModelAndView info(@PathVariable("id") int id) {
         return articleService.info(id);
+    }
+
+    @RequestMapping("/modify/{id}")
+    public ModelAndView modify(@PathVariable("id") int id) {
+        return articleService.modify(id);
     }
 }

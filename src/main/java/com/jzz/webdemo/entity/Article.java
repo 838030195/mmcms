@@ -7,6 +7,8 @@ public class Article {
     private String content;
     private long time;
     private int authorId;
+    private String author;
+    private String source;
 
     public Article() {
     }
@@ -57,5 +59,21 @@ public class Article {
 
     public void setTime(long time) {
         this.time = time;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
+    public String getSource() {
+        return source;
+    }
+
+    public void setSource(String source) {
+        this.source = source;
     }
 }

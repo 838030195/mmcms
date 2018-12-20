@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title th:text="${title}"></title>
+    <title>错误</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -14,10 +14,6 @@
     <script src="https://cdn.staticfile.org/popper.js/1.12.5/umd/popper.min.js"></script>
 
 
-    <link rel="stylesheet" href="/demo/css/markdown.css" />
-
-    <!--<link rel="stylesheet" href="../static/demo/css/markdown.css">-->
-
 </head>
 <body>
 
@@ -25,29 +21,17 @@
     <div class="container">
         <div class="row">
             <div>
-                <h1 id="title" th:text="${title}"></h1>
-                <h4 id="subtitle" th:text="${subtitle}"></h4>
-
-                <br />
+                <h1>Woooo...</h1>
+                <h1>您要访问的页面不存在</h1>
                 <p>
-                    发表时间：<span id="time" th:text="${time}"></span>
+                    请核对后再访问
                 </p>
-                <p>
-                    作者：<span id="author" th:text="${author}"></span>
-                </p>
-                <br />
-                <a th:href="${href}">修改文章</a>
             </div>
         </div>
     </div>
 </div>
 
-<div class="container">
-    <div id="content" th:utext="${content}" style="font-size: large"></div>
-</div>
-
-
-<div class="jumbotron text-center" style="margin-top: 30px; margin-bottom:0">
+<div class="jumbotron text-center" style="margin-bottom:0">
     <p>Copyright © Jzz 2018. All rights reserved.</p>
 </div>
 

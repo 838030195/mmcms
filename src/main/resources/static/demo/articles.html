@@ -12,6 +12,7 @@
     <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdn.staticfile.org/popper.js/1.12.5/umd/popper.min.js"></script>
     <script src="./js/auth.js"></script>
+    <script src="./js/article.js"></script>
 </head>
 <body onload="preAuth()">
 
@@ -50,42 +51,20 @@
     <div id="login_view" class="row" style="display: none">
         <div class="col-8" style="padding: 30px">
             <div class="row border rounded" style="padding: 20px;">
-                <div style="width: 100%; margin-bottom: 20px">
-                    <h2>选择一项以开始</h2>
-                </div>
+                <table class="table table-hover">
+                    <thead class="thead-dark text-center">
+                        <tr>
+                            <th>ID</th>
+                            <th>标题</th>
+                            <th>发表时间</th>
+                            <th>作者</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody id="article_table" class="text-center">
 
-                <div class="container">
-                    <a href="manage.html" style="display: block; text-decoration: none">
-                        <div class="row mdbtn">
-                            <div class="col-3 mdbtn-left">
-                                <i class="material-icons md-48">dns</i>
-                            </div>
-                            <div class="col-9 mdbtn-right">
-                                <h4>管理</h4>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="manage.html" style="display: block; text-decoration: none">
-                        <div class="row mdbtn">
-                            <div class="col-3 mdbtn-left">
-                                <i class="material-icons md-48">book</i>
-                            </div>
-                            <div class="col-9 mdbtn-right">
-                                <h4>文章</h4>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="manage.html" style="display: block; text-decoration: none">
-                        <div class="row mdbtn">
-                            <div class="col-3 mdbtn-left">
-                                <i class="material-icons md-48">error</i>
-                            </div>
-                            <div class="col-9 mdbtn-right">
-                                <h4>关于</h4>
-                            </div>
-                        </div>
-                    </a>
-                </div>
+                    </tbody>
+                </table>
             </div>
         </div>
 
@@ -107,5 +86,13 @@
 </div>
 
 
+<div class="jumbotron text-center" style="margin-bottom:0">
+    <p>Copyright © Jzz 2018. All rights reserved.</p>
+</div>
+
+
+<script>
+    loadList()
+</script>
 </body>
 </html>

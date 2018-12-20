@@ -9,8 +9,8 @@ import java.util.List;
 public interface ArticleMapper {
 
     @Options(useGeneratedKeys = true)
-    @Insert("INSERT INTO `article` (`title`, `subtitle`, `content`, `time`, `author_id`) VALUES (" +
-            "#{title}, #{subtitle}, #{content}, #{time}, #{authorId})")
+    @Insert("INSERT INTO `article` (`title`, `subtitle`, `content`, `time`, `author_id`, `source`) VALUES (" +
+            "#{title}, #{subtitle}, #{content}, #{time}, #{authorId}, #{source})")
     int add(Article article);
 
     @Select("SELECT * FROM `article` WHERE `id`=#{id}")
@@ -19,7 +19,7 @@ public interface ArticleMapper {
     @Select("SELECT * FROM `article` ORDER BY `id` DESC")
     List<Article> getList();
 
-    @Update("UPDATE `article` SET `title`=#{title}, `subtitle`=#{subtitle}, `content`=#{content} WHERE `id`=#{id} LIMIT 1")
+    @Update("UPDATE `article` SET `title`=#{title}, `subtitle`=#{subtitle}, `content`=#{content}, `source`=#{source} WHERE `id`=#{id} LIMIT 1")
     int update(Article article);
 
     @Delete("DELETE FROM `article` WHERE `id`=#{id} LIMIT 1")

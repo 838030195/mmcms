@@ -25,8 +25,9 @@ public class ArticleController {
     public Msg add(@RequestParam("title") String title,
                    @RequestParam("subtitle") String subtitle,
                    @RequestParam("content") String content,
-                   @RequestParam("authorId") int authorId) {
-        return articleService.add(title, subtitle, content, authorId);
+                   @RequestParam("authorId") int authorId,
+                   @RequestParam("source") String source) {
+        return articleService.add(title, subtitle, content, authorId, source);
     }
 
     @RequestMapping("/remove")
@@ -37,6 +38,15 @@ public class ArticleController {
     @RequestMapping("/get")
     public Msg get(@RequestParam("id") int id) {
         return articleService.get(id);
+    }
+
+    @RequestMapping("/update")
+    public Msg update(@RequestParam("id") int id,
+                      @RequestParam("title") String title,
+                      @RequestParam("subtitle") String subtitle,
+                      @RequestParam("content") String content,
+                      @RequestParam("source") String source) {
+        return articleService.update(id, title, subtitle, content, source);
     }
 
 }

@@ -37,3 +37,24 @@ div i {
     left: 50%;
     transform: translateY(-50%) translateX(-50%);
 }
+
+.center-vertical {
+    display: block;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.longbar {
+    width: 100%;
+    background-color: #3f3f3f;
+    color: white;
+    padding: 10px;
+    font-size: large;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#result {
+    padding: 10px;
+}
