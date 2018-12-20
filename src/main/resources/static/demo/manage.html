@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>内容管理</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link href="./css/mdicons.css" rel="stylesheet">
+    <link href="./css/md.css" rel="stylesheet">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/popper.js/1.12.5/umd/popper.min.js"></script>
+    <script src="./js/auth.js"></script>
+</head>
+<body onload="preAuth()">
+
+<nav class="navbar navbar-expand-sm bg-secondary navbar-dark">
+    <ul class="navbar-nav">
+        <li class="nav-item">
+            <a class="nav-link" href="index.html">首页</a>
+        </li>
+        <li class="nav-item active">
+            <a class="nav-link" href="#">管理</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="articles.html">文章</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="about.html">关于</a>
+        </li>
+    </ul>
+</nav>
+
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+        <h1>文章管理</h1>
+    </div>
+</div>
+
+<div class="container">
+    <div id="no_login_view" class="row" style="display: none">
+        <h3>
+            您还未登录，<a href="login.html" style="display: block">去登录</a>或<a href="register.html" style="display: block">注册</a>
+            来启用全部功能
+        </h3>
+
+    </div>
+
+    <div id="login_view" class="row" style="display: none">
+        <div class="col-8" style="padding: 30px">
+            <div class="row border rounded" style="padding: 20px;">
+                <div style="width: 100%; margin-bottom: 20px">
+                    <h2>选择一项以开始</h2>
+                </div>
+
+                <div class="container">
+                    <a href="manage.html" style="display: block; text-decoration: none">
+                        <div class="row mdbtn">
+                            <div class="col-3 mdbtn-left">
+                                <i class="material-icons md-48">dns</i>
+                            </div>
+                            <div class="col-9 mdbtn-right">
+                                <h4>管理</h4>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="manage.html" style="display: block; text-decoration: none">
+                        <div class="row mdbtn">
+                            <div class="col-3 mdbtn-left">
+                                <i class="material-icons md-48">book</i>
+                            </div>
+                            <div class="col-9 mdbtn-right">
+                                <h4>文章</h4>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="manage.html" style="display: block; text-decoration: none">
+                        <div class="row mdbtn">
+                            <div class="col-3 mdbtn-left">
+                                <i class="material-icons md-48">error</i>
+                            </div>
+                            <div class="col-9 mdbtn-right">
+                                <h4>关于</h4>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-3" style="padding: 30px">
+            <div class="row border rounded" style="padding: 20px;">
+                <div style="width: 100%">
+                    <h4>当前用户</h4>
+                    <h1 id="home_username"></h1>
+                </div>
+
+
+                <div style="width: 100%; margin-top: 10px">
+                    <button type="button" class="btn btn-default btn-block btn-lg" onclick="logout()">注销</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>
