@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>关于</title>
+    <title>编辑文章 - Markdown</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
@@ -12,8 +12,10 @@
     <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdn.staticfile.org/popper.js/1.12.5/umd/popper.min.js"></script>
     <script src="./js/auth.js"></script>
+    <script src="./js/showdown.min.js"></script>
+    <script src="./js/article.js"></script>
 </head>
-<body>
+<body onload="preAuth()">
 
 <nav class="navbar navbar-expand-sm bg-secondary navbar-dark">
     <ul class="navbar-nav">
@@ -34,25 +36,62 @@
 
 <div class="jumbotron jumbotron-fluid">
     <div class="container">
-        <h1>关于</h1>
+        <h1>编辑文章 - Markdown</h1>
     </div>
 </div>
 
 <div class="container">
-    <p>
-        MyMicro Content Manage System(MMCMS)是一个微型网站内容管理系统。具有用户登录注册、文章添加发布等功能。当前仅作Demo使用。
-    </p>
-    <p>
-        Developer: JzzDev
-    </p>
-    <p>
-        Github: <a href="https://github.com/838030195/mmcms">https://github.com/838030195/mmcms</a>
-    </p>
+    <div id="no_login_view" class="row" style="display: none">
+        <h3>
+            您还未登录，<a href="login.html" style="display: block">去登录</a>或<a href="register.html" style="display: block">注册</a>
+            来启用全部功能
+        </h3>
+
+    </div>
+
+    <div id="login_view" class="row" style="display: none">
+
+        <div class="container">
+            <div class="row">
+                <input type="text" id="title" class="form-control" placeholder="请输入标题">
+            </div>
+
+            <div class="row">
+                <input type="text" id="subtitle" class="form-control" placeholder="请输入副标题">
+            </div>
+
+            <div class="row">
+                <div class="col-5">
+                    <textarea class="form-control" id="oriContent" style="height:700px; width:600px;" placeholder="文章内容" onkeyup="convert()"></textarea>
+                </div>
+
+                <div class="col-2"></div>
+
+                <div class="col-5">
+                    <div id="result"></div>
+                </div>
+            </div>
+
+            <button type="button" class="btn btn-primary btn-lg" onclick="submit()">发布</button>
+        </div>
+
+
+    </div>
 </div>
 
 
 <div class="jumbotron text-center" style="margin-bottom:0">
     <p>Copyright © Jzz 2018. All rights reserved.</p>
 </div>
+
+
+<script type="text/javascript">
+    function convert(){
+        var text = document.getElementById("oriContent").value;
+        var converter = new showdown.Converter();
+        var html = converter.makeHtml(text);
+        document.getElementById("result").innerHTML = html;
+    }
+</script>
 </body>
 </html>

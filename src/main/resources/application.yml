@@ -12,3 +12,11 @@ spring:
     view:
       prefix: /
       suffix: .html
+
+  thymeleaf:
+    cache: true
+
+  devtools:
+    restart:
+      enabled: true
+      additional-paths: src/main/java

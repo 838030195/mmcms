@@ -1,10 +1,53 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title th:text="${title}"></title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/popper.js/1.12.5/umd/popper.min.js"></script>
+
+
+    <link rel="stylesheet" media="all" href="https://cdn2.jianshu.io/assets/web-4d59548b691b7b5c11d8.css" />
+
+    <!--<link rel="stylesheet" href="../static/demo/css/markdown.css">-->
+
 </head>
 <body>
-$END$
+
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+        <div class="row">
+            <div>
+                <h1 id="title" th:text="${title}"></h1>
+                <h4 id="subtitle" th:text="${subtitle}"></h4>
+
+                <br />
+                <p>
+                    发表时间：<span id="time" th:text="${time}"></span>
+                </p>
+                <p>
+                    作者：<span id="author" th:text="${author}"></span>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div id="content" th:utext="${content}" style="font-size: large"></div>
+</div>
+
+
+<div class="jumbotron text-center" style="margin-top: 30px; margin-bottom:0">
+    <p>Copyright © Jzz 2018. All rights reserved.</p>
+</div>
+
 </body>
 </html>
