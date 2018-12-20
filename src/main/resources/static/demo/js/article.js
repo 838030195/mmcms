@@ -1,3 +1,5 @@
+var url = window.location.origin
+
 function submit() {
     var title = document.getElementById('title').value
     var subtitle = document.getElementById('subtitle').value
@@ -8,7 +10,7 @@ function submit() {
 
     $.ajax({
         type: 'POST',
-        url: 'http://localhost/article/add',
+        url: url + '/article/add',
         dataType: 'json',
         data: {
             "title": title,
@@ -20,7 +22,7 @@ function submit() {
         success: function (data) {
             if (data.code === 0) {
                 alert('发表成功')
-                location.href = 'http://localhost/info/' + data.data.id
+                location.href = url + '/info/' + data.data.id
             } else {
                 alert('发表失败')
             }
@@ -40,7 +42,7 @@ function update() {
 
     $.ajax({
         type: 'POST',
-        url: 'http://localhost/article/update',
+        url: url + '/article/update',
         dataType: 'json',
         data: {
             "id": id,
@@ -52,7 +54,7 @@ function update() {
         success: function (data) {
             if (data.code === 0) {
                 alert('发表成功')
-                location.href = 'http://localhost/info/' + data.data.id
+                location.href = url + '/info/' + data.data.id
             } else {
                 alert('发表失败')
             }
@@ -66,7 +68,7 @@ function update() {
 function loadList() {
     $.ajax({
         type: 'POST',
-        url: 'http://localhost/article/list',
+        url: url + '/article/list',
         dataType: 'json',
         success: function (data) {
             var list = data.data
@@ -83,7 +85,7 @@ function loadList() {
 
                 var tdTitle = document.createElement('td')
                 tdTitle.style.verticalAlign = 'middle'
-                tdTitle.innerHTML = '<a href="http://localhost/info/' + list[i].id + '">' + list[i].title + '</a>'
+                tdTitle.innerHTML = '<a href=' + url + '/info/' + list[i].id + '>' + list[i].title + '</a>'
                 tr.appendChild(tdTitle)
 
                 var tdTime = document.createElement('td')
@@ -113,16 +115,16 @@ function timestampToTime(timestamp) {
     var Y = date.getFullYear() + '-';
     var M = (date.getMonth()+1 < 10 ? '0'+(date.getMonth()+1) : date.getMonth()+1) + '-';
     var D = date.getDate() + ' ';
-    var h = date.getHours() + ':';
-    var m = date.getMinutes() + ':';
-    var s = date.getSeconds();
+    var h = (date.getHours() < 10 ? '0' + (date.getHours()) : date.getHours()) + ':';
+    var m = (date.getMinutes() < 10 ? '0' + (date.getMinutes()) : date.getMinutes()) + ':';
+    var s = (date.getSeconds() < 10 ? '0' + (date.getSeconds()) : date.getSeconds());
     return Y+M+D+h+m+s;
 }
 
 function del(id) {
     $.ajax({
         type: 'POST',
-        url: 'http://localhost/article/remove',
+        url: url + '/article/remove',
         dataType: 'json',
         data: {
             "id": id

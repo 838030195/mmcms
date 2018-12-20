@@ -105,7 +105,7 @@ public class ArticleService {
             User user = userMapper.get(article.getAuthorId());
             modelAndView.addObject("author", user.getUsername());
 
-            modelAndView.addObject("href", "http://localhost/modify/" + article.getId());
+            modelAndView.addObject("href", "/modify/" + article.getId());
             return modelAndView;
         }
 

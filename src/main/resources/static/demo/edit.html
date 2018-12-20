@@ -13,8 +13,13 @@
     <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdn.staticfile.org/popper.js/1.12.5/umd/popper.min.js"></script>
     <script src="./js/auth.js"></script>
-    <script src="./js/showdown.min.js"></script>
     <script src="./js/article.js"></script>
+    <script src="https://cdn.bootcss.com/marked/0.5.2/marked.js"></script>
+
+    <script src="https://cdn.bootcss.com/highlight.js/9.13.1/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <link rel="stylesheet" href="./highlight/styles/github-gist.css">
 </head>
 <body onload="preAuth()">
 
@@ -105,11 +110,27 @@
 
 
 <script type="text/javascript">
+
     function convert(){
+        // highlight.js的同步高亮
+        marked.setOptions({
+            highlight: function (code) {
+                return hljs.highlightAuto(code).value;
+            }
+        });
         var text = document.getElementById("oriContent").value;
-        var converter = new showdown.Converter();
-        var html = converter.makeHtml(text);
+        // var converter = new showdown.Converter();
+        // var html = converter.makeHtml(text);
+        var html = marked(text, null, null)
+
         document.getElementById("result").innerHTML = '<div class="markdown-body">' + html + '</div>';
+
+        $(document).ready(function() {
+            $('pre code').each(function(i, block) {
+                hljs.highlightBlock(block);
+            });
+        });
+
     }
 </script>
 </body>

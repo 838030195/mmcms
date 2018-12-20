@@ -1,3 +1,5 @@
+var url = window.location.origin
+
 function preAuth() {
     var username = localStorage.getItem("username")
     var password = localStorage.getItem("password")
@@ -24,7 +26,7 @@ function fillEmptyData() {
 function doAuth(username, password) {
     $.ajax({
         type: 'POST',
-        url: 'http://127.0.0.1/user/auth',
+        url: url + '/user/auth',
         data: {
             'username': username,
             'password': password
@@ -52,7 +54,7 @@ function doAuth(username, password) {
 function login(username, password) {
     $.ajax({
         type: 'POST',
-        url: 'http://127.0.0.1/user/auth',
+        url: url + '/user/auth',
         data: {
             'username': username,
             'password': password
@@ -80,7 +82,7 @@ function register(username, password, password2) {
     } else {
         $.ajax({
             type: 'POST',
-            url: 'http://127.0.0.1/user/register',
+            url: url + '/user/register',
             data: {
                 'username': username,
                 'password': password

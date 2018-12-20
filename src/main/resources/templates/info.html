@@ -16,8 +16,12 @@
 
     <link rel="stylesheet" href="/demo/css/markdown.css" />
 
-    <!--<link rel="stylesheet" href="../static/demo/css/markdown.css">-->
+    <script src="https://cdn.bootcss.com/marked/0.5.2/marked.js"></script>
 
+    <script src="https://cdn.bootcss.com/highlight.js/9.13.1/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <link rel="stylesheet" href="/demo/highlight/styles/github-gist.css">
 </head>
 <body>
 
@@ -50,6 +54,31 @@
 <div class="jumbotron text-center" style="margin-top: 30px; margin-bottom:0">
     <p>Copyright © Jzz 2018. All rights reserved.</p>
 </div>
+
+<script type="text/javascript">
+
+    // function convert(){
+        // // highlight.js的同步高亮
+        // marked.setOptions({
+        //     highlight: function (code) {
+        //         return hljs.highlightAuto(code).value;
+        //     }
+        // });
+        // var text = document.getElementById("oriContent").value;
+        // // var converter = new showdown.Converter();
+        // // var html = converter.makeHtml(text);
+        // var html = marked(text, null, null)
+        //
+        // document.getElementById("result").innerHTML = '<div class="markdown-body">' + html + '</div>';
+
+        $(document).ready(function() {
+            $('pre code').each(function(i, block) {
+                hljs.highlightBlock(block);
+            });
+        });
+
+    // }
+</script>
 
 </body>
 </html>
